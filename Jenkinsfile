@@ -13,6 +13,8 @@ timestamps {
                     def currentBranch = env.BRANCH_NAME
                     def isBaseBranch = currentBranch == 'main' || currentBranch == 'dev' || currentBranch?.startsWith('release-')
                     if(!isBaseBranch){
+
+                       sh "ls -al"
                        sh "./mvnw -B clean verify -Djvm=${env.JAVA_HOME_11}/bin/java"
                     }else{
                        sh "./mvnw -B clean deploy -Djvm=${env.JAVA_HOME_11}/bin/java -DaltDeploymentRepository=${env.ALT_DEPLOYMENT_REPOSITORY_SNAPSHOTS}"
