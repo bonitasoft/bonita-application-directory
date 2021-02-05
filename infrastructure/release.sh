@@ -35,12 +35,12 @@ usage() {
     echo "    --help           display this help"
     echo ""
     echo -e "\e[1mEXEMPLE\e[0m"
-    echo "    Let's say you are on main branch and you want to create a 7.10.0 release based on this branch"
+    echo "    Let's say you are on master branch and you want to create a 7.10.0 release based on this branch"
     echo ""
     echo ""
     echo "    $ $name 7.12.0"
     echo ""
-    echo "    will create release 7.12.0 with main's HEAD as starting point"
+    echo "    will create release 7.12.0 with master's HEAD as starting point"
     echo ""
 }
 
