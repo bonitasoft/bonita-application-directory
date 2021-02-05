@@ -4,7 +4,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.bonitasoft.examples</groupId>
-	<artifactId>bonita-application-directory</artifactId>
+	<artifactId>bonita-app-directory</artifactId>
 	<version>7.12.2-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
@@ -45,7 +45,7 @@
 				<artifactId>maven-dependency-plugin</artifactId>
 				<executions>
 					<execution>
-						<id>get-application-directory-page</id>
+						<id>get-app-directory-page</id>
 						<phase>generate-sources</phase>
 						<goals>
 							<goal>unpack</goal>
@@ -54,7 +54,7 @@
 							<artifactItems>
 								<artifactItem>
 									<groupId>org.bonitasoft.web.pages</groupId>
-									<artifactId>page-application-directory</artifactId>
+									<artifactId>page-app-directory</artifactId>
 									<version>${project.version}</version>
 									<type>zip</type>
 								</artifactItem>
@@ -145,7 +145,7 @@
 						</goals>
 					</execution>
 					<execution>
-						<id>move-application-directory-resources</id>
+						<id>move-app-directory-resources</id>
 						<phase>generate-sources</phase>
 						<configuration>
 							<target>
@@ -198,7 +198,7 @@
 				<artifactId>copy-rename-maven-plugin</artifactId>
 				<executions>
 					<execution>
-						<id>rename-application-directory-page-json-file</id>
+						<id>rename-app-directory-page-json-file</id>
 						<phase>generate-sources</phase>
 						<configuration>
 							<sourceFile>${web.pages.dir}/${page-id}/page.json</sourceFile>

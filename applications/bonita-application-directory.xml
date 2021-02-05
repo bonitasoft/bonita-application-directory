@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <applications xmlns="http://documentation.bonitasoft.com/application-xml-schema/1.0">
-    <application token="userApp" version="2.1" profile="User" homePage="application-home-page" state="ACTIVATED" layout="custompage_LayoutWithoutMenuV1" theme="custompage_themeBonita">
+    <application token="userApp" version="2.1" profile="User" homePage="app-directory" state="ACTIVATED" layout="custompage_LayoutWithoutMenuV1" theme="custompage_themeBonita">
         <displayName>Bonita Application Directory</displayName>
         <applicationPages>
-            <applicationPage customPage="custompage_home" token="application-home-page"/>
+            <applicationPage customPage="custompage_appDirectory" token="app-directory"/>
         </applicationPages>
         <applicationMenus/>
     </application>
