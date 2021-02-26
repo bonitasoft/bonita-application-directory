@@ -12,8 +12,8 @@
 
 	<properties>
 		<web.pages.dir>web_page</web.pages.dir>
-		<layout-id>LayoutBonitaV7</layout-id>
-		<page-id>ApplicationHome</page-id>
+		<layout-id>LayoutWithoutMenuV1</layout-id>
+		<page-id>ApplicationDirectoryBonitaV1</page-id>
 		<web.widgets.dir>web_widgets</web.widgets.dir>
 	</properties>
 
@@ -45,7 +45,7 @@
 				<artifactId>maven-dependency-plugin</artifactId>
 				<executions>
 					<execution>
-						<id>get-application-home-page</id>
+						<id>get-page</id>
 						<phase>generate-sources</phase>
 						<goals>
 							<goal>unpack</goal>
@@ -54,7 +54,7 @@
 							<artifactItems>
 								<artifactItem>
 									<groupId>org.bonitasoft.web.pages</groupId>
-									<artifactId>page-application-home</artifactId>
+									<artifactId>page-application-directory</artifactId>
 									<version>${project.version}</version>
 									<type>zip</type>
 								</artifactItem>
@@ -66,7 +66,7 @@
 						</configuration>
 					</execution>
 					<execution>
-						<id>get-bonita-layout-page</id>
+						<id>get-layout-page</id>
 						<phase>generate-sources</phase>
 						<goals>
 							<goal>unpack</goal>
@@ -75,7 +75,7 @@
 							<artifactItems>
 								<artifactItem>
 									<groupId>org.bonitasoft.web.pages</groupId>
-									<artifactId>layout-bonita</artifactId>
+									<artifactId>layout-without-menu</artifactId>
 									<version>${project.version}</version>
 									<type>zip</type>
 								</artifactItem>
@@ -87,7 +87,7 @@
 						</configuration>
 					</execution>
 					<execution>
-						<id>get-bonita-layout-widgets</id>
+						<id>get-layout-widgets</id>
 						<phase>generate-sources</phase>
 						<goals>
 							<goal>unpack</goal>
@@ -96,7 +96,7 @@
 							<artifactItems>
 								<artifactItem>
 									<groupId>org.bonitasoft.web.pages</groupId>
-									<artifactId>layout-bonita</artifactId>
+									<artifactId>layout-without-menu</artifactId>
 									<version>${project.version}</version>
 									<type>zip</type>
 								</artifactItem>
@@ -145,7 +145,7 @@
 						</goals>
 					</execution>
 					<execution>
-						<id>move-application-directory-resources</id>
+						<id>move-page-resources</id>
 						<phase>generate-sources</phase>
 						<configuration>
 							<target>
@@ -198,7 +198,7 @@
 				<artifactId>copy-rename-maven-plugin</artifactId>
 				<executions>
 					<execution>
-						<id>rename-application-home-page-json-file</id>
+						<id>rename-page-json-file</id>
 						<phase>generate-sources</phase>
 						<configuration>
 							<sourceFile>${web.pages.dir}/${page-id}/page.json</sourceFile>
