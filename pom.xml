@@ -12,7 +12,7 @@
 
 	<properties>
 		<web.pages.dir>web_page</web.pages.dir>
-		<living-app-layout-id>LayoutBonitaV7</living-app-layout-id>
+		<layout-id>LayoutBonitaV7</layout-id>
 		<page-id>ApplicationHome</page-id>
 		<web.widgets.dir>web_widgets</web.widgets.dir>
 	</properties>
@@ -81,7 +81,7 @@
 								</artifactItem>
 							</artifactItems>
 							<includes>resources/page.json,resources/assets/**</includes>
-							<outputDirectory>${web.pages.dir}/${living-app-layout-id}</outputDirectory>
+							<outputDirectory>${web.pages.dir}/${layout-id}</outputDirectory>
 							<overWriteReleases>true</overWriteReleases>
 							<overWriteSnapshots>true</overWriteSnapshots>
 						</configuration>
