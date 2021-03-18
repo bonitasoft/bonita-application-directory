@@ -14,6 +14,9 @@
 		<web.pages.dir>web_page</web.pages.dir>
 		<layout-id>LayoutWithoutMenuV1</layout-id>
 		<page-id>ApplicationDirectoryBonitaV1</page-id>
+		<page-error-403-id>Error403</page-error-403-id>
+		<page-error-404-id>Error404</page-error-404-id>
+		<page-error-500-id>Error500</page-error-500-id>
 		<web.widgets.dir>web_widgets</web.widgets.dir>
 	</properties>
 
@@ -107,6 +110,69 @@
 							<overWriteSnapshots>true</overWriteSnapshots>
 						</configuration>
 					</execution>
+					<execution>
+						<id>get-page-error-403</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>unpack</goal>
+						</goals>
+						<configuration>
+							<artifactItems>
+								<artifactItem>
+									<groupId>org.bonitasoft.web.pages</groupId>
+									<artifactId>page-error-403</artifactId>
+									<version>${project.version}</version>
+									<type>zip</type>
+								</artifactItem>
+							</artifactItems>
+							<includes>resources/page.json,resources/assets/**</includes>
+							<outputDirectory>${web.pages.dir}/${page-error-403-id}</outputDirectory>
+							<overWriteReleases>true</overWriteReleases>
+							<overWriteSnapshots>true</overWriteSnapshots>
+						</configuration>
+					</execution>
+					<execution>
+						<id>get-page-error-404</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>unpack</goal>
+						</goals>
+						<configuration>
+							<artifactItems>
+								<artifactItem>
+									<groupId>org.bonitasoft.web.pages</groupId>
+									<artifactId>page-error-404</artifactId>
+									<version>${project.version}</version>
+									<type>zip</type>
+								</artifactItem>
+							</artifactItems>
+							<includes>resources/page.json,resources/assets/**</includes>
+							<outputDirectory>${web.pages.dir}/${page-error-404-id}</outputDirectory>
+							<overWriteReleases>true</overWriteReleases>
+							<overWriteSnapshots>true</overWriteSnapshots>
+						</configuration>
+					</execution>
+					<execution>
+						<id>get-page-error-500</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>unpack</goal>
+						</goals>
+						<configuration>
+							<artifactItems>
+								<artifactItem>
+									<groupId>org.bonitasoft.web.pages</groupId>
+									<artifactId>page-error-500</artifactId>
+									<version>${project.version}</version>
+									<type>zip</type>
+								</artifactItem>
+							</artifactItems>
+							<includes>resources/page.json,resources/assets/**</includes>
+							<outputDirectory>${web.pages.dir}/${page-error-500-id}</outputDirectory>
+							<overWriteReleases>true</overWriteReleases>
+							<overWriteSnapshots>true</overWriteSnapshots>
+						</configuration>
+					</execution>
 				</executions>
 			</plugin>
 			<plugin>
@@ -191,6 +257,51 @@
 							<goal>run</goal>
 						</goals>
 					</execution>
+					<execution>
+						<id>move-page-error-403</id>
+						<phase>generate-sources</phase>
+						<configuration>
+							<target>
+								<move todir="${web.pages.dir}/${page-error-403-id}"
+									  failonerror="true">
+									<fileset dir="${web.pages.dir}/${page-error-403-id}/resources" />
+								</move>
+							</target>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>move-page-error-404</id>
+						<phase>generate-sources</phase>
+						<configuration>
+							<target>
+								<move todir="${web.pages.dir}/${page-error-404-id}"
+									  failonerror="true">
+									<fileset dir="${web.pages.dir}/${page-error-404-id}/resources" />
+								</move>
+							</target>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>move-page-error-500</id>
+						<phase>generate-sources</phase>
+						<configuration>
+							<target>
+								<move todir="${web.pages.dir}/${page-error-500-id}"
+									  failonerror="true">
+									<fileset dir="${web.pages.dir}/${page-error-500-id}/resources" />
+								</move>
+							</target>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
 				</executions>
 			</plugin>
 			<plugin>
@@ -227,6 +338,42 @@
 						<configuration>
 							<sourceFile>${project.build.directory}/${project.artifactId}-${project.version}.zip</sourceFile>
 							<destinationFile>${project.build.directory}/${project.artifactId}-${project.version}.bos</destinationFile>
+							<overWrite>true</overWrite>
+						</configuration>
+						<goals>
+							<goal>rename</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>rename-page-error-403-json-file</id>
+						<phase>generate-sources</phase>
+						<configuration>
+							<sourceFile>${web.pages.dir}/${page-error-403-id}/page.json</sourceFile>
+							<destinationFile>${web.pages.dir}/${page-error-403-id}/${page-error-403-id}.json</destinationFile>
+							<overWrite>true</overWrite>
+						</configuration>
+						<goals>
+							<goal>rename</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>rename-page-error-404-json-file</id>
+						<phase>generate-sources</phase>
+						<configuration>
+							<sourceFile>${web.pages.dir}/${page-error-404-id}/page.json</sourceFile>
+							<destinationFile>${web.pages.dir}/${page-error-404-id}/${page-error-404-id}.json</destinationFile>
+							<overWrite>true</overWrite>
+						</configuration>
+						<goals>
+							<goal>rename</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>rename-page-error-500-json-file</id>
+						<phase>generate-sources</phase>
+						<configuration>
+							<sourceFile>${web.pages.dir}/${page-error-500-id}/page.json</sourceFile>
+							<destinationFile>${web.pages.dir}/${page-error-500-id}/${page-error-500-id}.json</destinationFile>
 							<overWrite>true</overWrite>
 						</configuration>
 						<goals>
