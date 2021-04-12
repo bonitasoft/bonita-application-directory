@@ -4,6 +4,9 @@
         <displayName>Bonita Application Directory</displayName>
         <applicationPages>
             <applicationPage customPage="custompage_ApplicationDirectoryBonitaV1" token="home"/>
+            <applicationPage customPage="custompage_Error403" token="error-403"/>
+            <applicationPage customPage="custompage_Error404" token="error-404"/>
+            <applicationPage customPage="custompage_Error500" token="error-500"/>
         </applicationPages>
         <applicationMenus/>
     </application>
