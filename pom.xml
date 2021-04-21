@@ -3,7 +3,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>org.bonitasoft.examples</groupId>
+	<groupId>org.bonitasoft.web.application</groupId>
 	<artifactId>bonita-application-directory</artifactId>
 	<version>7.13.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
@@ -19,6 +19,39 @@
 		<page-error-500-id>Error500</page-error-500-id>
 		<web.widgets.dir>web_widgets</web.widgets.dir>
 	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.bonitasoft.web.pages</groupId>
+			<artifactId>page-application-directory</artifactId>
+			<version>${project.version}</version>
+			<type>zip</type>
+		</dependency>
+		<dependency>
+			<groupId>org.bonitasoft.web.pages</groupId>
+			<artifactId>layout-without-menu</artifactId>
+			<version>${project.version}</version>
+			<type>zip</type>
+		</dependency>
+		<dependency>
+			<groupId>org.bonitasoft.web.pages</groupId>
+			<artifactId>page-error-403</artifactId>
+			<version>${project.version}</version>
+			<type>zip</type>
+		</dependency>
+		<dependency>
+			<groupId>org.bonitasoft.web.pages</groupId>
+			<artifactId>page-error-404</artifactId>
+			<version>${project.version}</version>
+			<type>zip</type>
+		</dependency>
+		<dependency>
+			<groupId>org.bonitasoft.web.pages</groupId>
+			<artifactId>page-error-500</artifactId>
+			<version>${project.version}</version>
+			<type>zip</type>
+		</dependency>
+	</dependencies>
 
 	<build>
 		<pluginManagement>
@@ -380,6 +413,18 @@
 							<goal>rename</goal>
 						</goals>
 					</execution>
+					<execution>
+						<id>prepare-xml-artifact</id>
+						<phase>package</phase>
+						<configuration>
+							<sourceFile>applications/${project.artifactId}.xml</sourceFile>
+							<destinationFile>${project.build.directory}/${project.artifactId}-${project.version}.xml</destinationFile>
+							<overWrite>true</overWrite>
+						</configuration>
+						<goals>
+							<goal>copy</goal>
+						</goals>
+					</execution>
 				</executions>
 			</plugin>
 			<plugin>
@@ -396,6 +441,10 @@
 								<artifact>
 									<type>bos</type>
 									<file>${project.build.directory}/${project.artifactId}-${project.version}.bos</file>
+								</artifact>
+								<artifact>
+									<type>xml</type>
+									<file>${project.build.directory}/${project.artifactId}-${project.version}.xml</file>
 								</artifact>
 							</artifacts>
 						</configuration>
