@@ -2,6 +2,7 @@
 <applications xmlns="http://documentation.bonitasoft.com/application-xml-schema/1.0">
     <application token="appDirectory" version="2.1" profile="User" homePage="home" state="ACTIVATED" layout="custompage_LayoutWithoutMenuV1" theme="custompage_themeBonita">
         <displayName>Bonita Application Directory</displayName>
+        <iconPath>bonita-application-directory.png</iconPath>
         <applicationPages>
             <applicationPage customPage="custompage_ApplicationDirectoryBonitaV1" token="home"/>
             <applicationPage customPage="custompage_Error403" token="error-403"/>
