@@ -12,11 +12,6 @@
 
 	<properties>
 		<web.pages.dir>web_page</web.pages.dir>
-		<layout-id>LayoutWithoutMenuV1</layout-id>
-		<page-id>ApplicationDirectoryBonitaV1</page-id>
-		<page-error-403-id>Error403</page-error-403-id>
-		<page-error-404-id>Error404</page-error-404-id>
-		<page-error-500-id>Error500</page-error-500-id>
 		<web.widgets.dir>web_widgets</web.widgets.dir>
 	</properties>
 
