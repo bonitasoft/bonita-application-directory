@@ -22,31 +22,31 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>org.bonitasoft.web.pages</groupId>
+			<groupId>org.bonitasoft.web.page</groupId>
 			<artifactId>page-application-directory</artifactId>
 			<version>${project.version}</version>
 			<type>zip</type>
 		</dependency>
 		<dependency>
-			<groupId>org.bonitasoft.web.pages</groupId>
+			<groupId>org.bonitasoft.web.page</groupId>
 			<artifactId>layout-without-menu</artifactId>
 			<version>${project.version}</version>
 			<type>zip</type>
 		</dependency>
 		<dependency>
-			<groupId>org.bonitasoft.web.pages</groupId>
+			<groupId>org.bonitasoft.web.page</groupId>
 			<artifactId>page-error-403</artifactId>
 			<version>${project.version}</version>
 			<type>zip</type>
 		</dependency>
 		<dependency>
-			<groupId>org.bonitasoft.web.pages</groupId>
+			<groupId>org.bonitasoft.web.page</groupId>
 			<artifactId>page-error-404</artifactId>
 			<version>${project.version}</version>
 			<type>zip</type>
 		</dependency>
 		<dependency>
-			<groupId>org.bonitasoft.web.pages</groupId>
+			<groupId>org.bonitasoft.web.page</groupId>
 			<artifactId>page-error-500</artifactId>
 			<version>${project.version}</version>
 			<type>zip</type>
@@ -89,7 +89,7 @@
 						<configuration>
 							<artifactItems>
 								<artifactItem>
-									<groupId>org.bonitasoft.web.pages</groupId>
+									<groupId>org.bonitasoft.web.page</groupId>
 									<artifactId>page-application-directory</artifactId>
 									<version>${project.version}</version>
 									<type>zip</type>
@@ -110,7 +110,7 @@
 						<configuration>
 							<artifactItems>
 								<artifactItem>
-									<groupId>org.bonitasoft.web.pages</groupId>
+									<groupId>org.bonitasoft.web.page</groupId>
 									<artifactId>layout-without-menu</artifactId>
 									<version>${project.version}</version>
 									<type>zip</type>
@@ -131,7 +131,7 @@
 						<configuration>
 							<artifactItems>
 								<artifactItem>
-									<groupId>org.bonitasoft.web.pages</groupId>
+									<groupId>org.bonitasoft.web.page</groupId>
 									<artifactId>layout-without-menu</artifactId>
 									<version>${project.version}</version>
 									<type>zip</type>
@@ -152,7 +152,7 @@
 						<configuration>
 							<artifactItems>
 								<artifactItem>
-									<groupId>org.bonitasoft.web.pages</groupId>
+									<groupId>org.bonitasoft.web.page</groupId>
 									<artifactId>page-error-403</artifactId>
 									<version>${project.version}</version>
 									<type>zip</type>
@@ -173,7 +173,7 @@
 						<configuration>
 							<artifactItems>
 								<artifactItem>
-									<groupId>org.bonitasoft.web.pages</groupId>
+									<groupId>org.bonitasoft.web.page</groupId>
 									<artifactId>page-error-404</artifactId>
 									<version>${project.version}</version>
 									<type>zip</type>
@@ -194,7 +194,7 @@
 						<configuration>
 							<artifactItems>
 								<artifactItem>
-									<groupId>org.bonitasoft.web.pages</groupId>
+									<groupId>org.bonitasoft.web.page</groupId>
 									<artifactId>page-error-500</artifactId>
 									<version>${project.version}</version>
 									<type>zip</type>
