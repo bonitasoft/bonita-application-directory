@@ -80,7 +80,7 @@
 				<artifactId>maven-dependency-plugin</artifactId>
 				<executions>
 					<execution>
-						<id>get-page</id>
+						<id>get-bonita-pages</id>
 						<phase>generate-sources</phase>
 						<goals>
 							<goal>unpack</goal>
@@ -94,23 +94,30 @@
 									<classifier>sources</classifier>
 									<type>zip</type>
 								</artifactItem>
-							</artifactItems>
-							<outputDirectory>${web.pages.dir}</outputDirectory>
-							<overWriteReleases>true</overWriteReleases>
-							<overWriteSnapshots>true</overWriteSnapshots>
-						</configuration>
-					</execution>
-					<execution>
-						<id>get-layout-page</id>
-						<phase>generate-sources</phase>
-						<goals>
-							<goal>unpack</goal>
-						</goals>
-						<configuration>
-							<artifactItems>
 								<artifactItem>
 									<groupId>org.bonitasoft.web.page</groupId>
 									<artifactId>layout-without-menu</artifactId>
+									<version>${project.version}</version>
+									<classifier>sources</classifier>
+									<type>zip</type>
+								</artifactItem>
+								<artifactItem>
+									<groupId>org.bonitasoft.web.page</groupId>
+									<artifactId>page-error-403</artifactId>
+									<version>${project.version}</version>
+									<classifier>sources</classifier>
+									<type>zip</type>
+								</artifactItem>
+								<artifactItem>
+									<groupId>org.bonitasoft.web.page</groupId>
+									<artifactId>page-error-404</artifactId>
+									<version>${project.version}</version>
+									<classifier>sources</classifier>
+									<type>zip</type>
+								</artifactItem>
+								<artifactItem>
+									<groupId>org.bonitasoft.web.page</groupId>
+									<artifactId>page-error-500</artifactId>
 									<version>${project.version}</version>
 									<classifier>sources</classifier>
 									<type>zip</type>
@@ -144,69 +151,6 @@
 							</artifactItems>
 							<includes>resources/widgets/custom*/**</includes>
 							<outputDirectory>${web.widgets.dir}</outputDirectory>
-							<overWriteReleases>true</overWriteReleases>
-							<overWriteSnapshots>true</overWriteSnapshots>
-						</configuration>
-					</execution>
-					<execution>
-						<id>get-page-error-403</id>
-						<phase>generate-sources</phase>
-						<goals>
-							<goal>unpack</goal>
-						</goals>
-						<configuration>
-							<artifactItems>
-								<artifactItem>
-									<groupId>org.bonitasoft.web.page</groupId>
-									<artifactId>page-error-403</artifactId>
-									<version>${project.version}</version>
-									<classifier>sources</classifier>
-									<type>zip</type>
-								</artifactItem>
-							</artifactItems>
-							<outputDirectory>${web.pages.dir}</outputDirectory>
-							<overWriteReleases>true</overWriteReleases>
-							<overWriteSnapshots>true</overWriteSnapshots>
-						</configuration>
-					</execution>
-					<execution>
-						<id>get-page-error-404</id>
-						<phase>generate-sources</phase>
-						<goals>
-							<goal>unpack</goal>
-						</goals>
-						<configuration>
-							<artifactItems>
-								<artifactItem>
-									<groupId>org.bonitasoft.web.page</groupId>
-									<artifactId>page-error-404</artifactId>
-									<version>${project.version}</version>
-									<classifier>sources</classifier>
-									<type>zip</type>
-								</artifactItem>
-							</artifactItems>
-							<outputDirectory>${web.pages.dir}</outputDirectory>
-							<overWriteReleases>true</overWriteReleases>
-							<overWriteSnapshots>true</overWriteSnapshots>
-						</configuration>
-					</execution>
-					<execution>
-						<id>get-page-error-500</id>
-						<phase>generate-sources</phase>
-						<goals>
-							<goal>unpack</goal>
-						</goals>
-						<configuration>
-							<artifactItems>
-								<artifactItem>
-									<groupId>org.bonitasoft.web.page</groupId>
-									<artifactId>page-error-500</artifactId>
-									<version>${project.version}</version>
-									<classifier>sources</classifier>
-									<type>zip</type>
-								</artifactItem>
-							</artifactItems>
-							<outputDirectory>${web.pages.dir}</outputDirectory>
 							<overWriteReleases>true</overWriteReleases>
 							<overWriteSnapshots>true</overWriteSnapshots>
 						</configuration>
@@ -285,7 +229,7 @@
 						<id>prepare-xml-artifact</id>
 						<phase>package</phase>
 						<configuration>
-							<sourceFile>applications/${project.artifactId}.xml</sourceFile>
+							<sourceFile>bonita-distrib/${project.artifactId}.xml</sourceFile>
 							<destinationFile>${project.build.directory}/${project.artifactId}-${project.version}.xml</destinationFile>
 							<overWrite>true</overWrite>
 						</configuration>

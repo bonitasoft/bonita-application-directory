@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<applications xmlns="http://documentation.bonitasoft.com/application-xml-schema/1.0">
+    <application token="appDirectory" version="2.1" profile="User" homePage="home" state="ACTIVATED" layout="custompage_LayoutWithoutMenuBonita" theme="custompage_themeBonita">
+        <displayName>Bonita Application Directory</displayName>
+        <iconPath>bonita-application-directory.png</iconPath>
+        <applicationPages>
+            <applicationPage customPage="custompage_ApplicationDirectoryBonita" token="home"/>
+            <applicationPage customPage="custompage_Error403Bonita" token="error-403"/>
+            <applicationPage customPage="custompage_Error404Bonita" token="error-404"/>
+            <applicationPage customPage="custompage_Error500Bonita" token="error-500"/>
+        </applicationPages>
+        <applicationMenus/>
+    </application>
+</applications>
