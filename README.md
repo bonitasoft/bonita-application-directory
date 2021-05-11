@@ -1,6 +1,6 @@
 # Bonita Application Directory
 
-This repository aggregates all the development artifacts of the Bonita Application Directory.
+This repository aggregates all the development artifacts of Bonita Application Directory
 
 ## Build 
 
@@ -8,9 +8,9 @@ Run `./mvnw clean verify` in a terminal. The result of the build is a BOS Archiv
 
 ## Application content
 
-* An application descriptor for the Bonita Application Directory (`applications/bonita-application-directory.xml`)
-* A layout without menu as a development artifact
-* The application directory page development artifact
+* An application descriptor for Bonita Application Directory app (`applications/bonita-application-directory.xml`)
+* The layout without menu as a development artifact
+* The UI Designer pages development artifacts
 
 ## Customize the theme
 
