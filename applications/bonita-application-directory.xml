@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <applications xmlns="http://documentation.bonitasoft.com/application-xml-schema/1.0">
-    <application token="appDirectory" version="2.1" profile="_BONITA_INTERNAL_ALL" homePage="home" state="ACTIVATED" layout="custompage_LayoutWithoutMenuBonitaV1" theme="custompage_themeBonita">
+    <application token="appDirectory" version="2.1" profile="_BONITA_INTERNAL_PROFILE_ALL" homePage="home" state="ACTIVATED" layout="custompage_LayoutWithoutMenuBonitaV1" theme="custompage_themeBonita">
         <displayName>Bonita Application Directory</displayName>
         <iconPath>bonita-application-directory.png</iconPath>
         <applicationPages>
