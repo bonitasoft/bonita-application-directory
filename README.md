@@ -1,5 +1,3 @@
-
-
 # Bonita Application Directory
 
 This repository aggregates all the development artifacts of Bonita Application Directory
