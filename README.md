@@ -11,7 +11,6 @@ Run `./mvnw clean verify` in a terminal. The result of the build is a BOS Archiv
 * An application descriptor for Bonita Application Directory app (`applications/bonita-application-directory.xml`)
 * The layout without menu as a development artifact
 * The UI Designer pages development artifacts
-The application pages that are not designed with the UI Designer are already embedded in the Runtime bundle.
 
 ## Customize the theme
 
