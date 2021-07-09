@@ -2,6 +2,7 @@
 <applications xmlns="http://documentation.bonitasoft.com/application-xml-schema/1.0">
     <application token="appDirectory" version="1.0" profile="_BONITA_INTERNAL_PROFILE_ALL" homePage="home" state="ACTIVATED" layout="custompage_layoutWithoutMenuBonitaV1" theme="custompage_themeBonita">
         <displayName>Bonita Application Directory</displayName>
+        <description>Choose which application to access from the list of available ones.</description>
         <iconPath>bonita-application-directory.png</iconPath>
         <applicationPages>
             <applicationPage customPage="custompage_ApplicationDirectoryBonitaV1" token="home"/>
