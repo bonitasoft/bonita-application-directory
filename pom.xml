@@ -9,6 +9,7 @@
 	<packaging>pom</packaging>
 
 	<name>Bonita Application Directory</name>
+	<description>This application allows to choose which application to access from the list of available ones and handle common server errors.</description>
 
 	<properties>
 		<web.pages.dir>${project.build.directory}/web_page</web.pages.dir>

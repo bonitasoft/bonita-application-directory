@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <applications xmlns="http://documentation.bonitasoft.com/application-xml-schema/1.0">
     <application token="appDirectory" version="1.0" profile="_BONITA_INTERNAL_PROFILE_ALL" homePage="home" state="ACTIVATED" layout="custompage_layoutWithoutMenuBonitaV1" theme="custompage_themeBonita">
-        <displayName>Bonita Application Directory</displayName>
-        <description>This application allows to choose which application to access from the list of available ones and handle common server errors.</description>
+        <displayName>${name}</displayName>
+        <description>${description}</description>
         <iconPath>bonita-application-directory.png</iconPath>
         <applicationPages>
             <applicationPage customPage="custompage_ApplicationDirectoryBonitaV1" token="home"/>
