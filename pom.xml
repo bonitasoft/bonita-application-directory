@@ -49,6 +49,12 @@
 			<version>${project.version}</version>
 			<type>zip</type>
 		</dependency>
+		<dependency>
+			<groupId>org.bonitasoft.web.page</groupId>
+			<artifactId>page-error-503</artifactId>
+			<version>${project.version}</version>
+			<type>zip</type>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -117,6 +123,13 @@
 								<artifactItem>
 									<groupId>org.bonitasoft.web.page</groupId>
 									<artifactId>page-error-500</artifactId>
+									<version>${project.version}</version>
+									<classifier>sources</classifier>
+									<type>zip</type>
+								</artifactItem>
+								<artifactItem>
+									<groupId>org.bonitasoft.web.page</groupId>
+									<artifactId>page-error-503</artifactId>
 									<version>${project.version}</version>
 									<classifier>sources</classifier>
 									<type>zip</type>
