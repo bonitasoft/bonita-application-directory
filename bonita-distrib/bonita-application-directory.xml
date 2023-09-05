@@ -9,6 +9,7 @@
             <applicationPage customPage="custompage_error403Bonita" token="error-403"/>
             <applicationPage customPage="custompage_error404Bonita" token="error-404"/>
             <applicationPage customPage="custompage_error500Bonita" token="error-500"/>
+            <applicationPage customPage="custompage_error503Bonita" token="error-503"/>
         </applicationPages>
         <applicationMenus/>
     </application>
