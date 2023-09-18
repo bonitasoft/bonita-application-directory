@@ -11,6 +11,28 @@
 	<name>Bonita Application Directory</name>
 	<description>This application allows to choose which application to access from the list of available ones and handle common server errors.</description>
 
+    <url>https://www.bonitasoft.com</url>
+    <licenses>
+        <license>
+            <name>GPL-v2.0</name>
+            <url>http://www.gnu.org/licenses/gpl-2.0.txt</url>
+        </license>
+    </licenses>
+    <developers>
+        <developer>
+            <id>bonitasoft</id>
+            <name>Bonitasoft</name>
+            <email>rd.user@bonitasoft.com</email>
+            <organization>Bonitasoft</organization>
+            <organizationUrl>https://www.bonitasoft.com</organizationUrl>
+        </developer>
+    </developers>
+    <scm>
+        <connection>scm:git:git@github.com:bonitasoft/bonita-application-directory.git</connection>
+        <developerConnection>scm:git:git@github.com:bonitasoft/bonita-application-directory.git</developerConnection>
+        <url>https://github.com/bonitasoft/bonita-application-directory</url>
+    </scm>
+
 	<properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<application.version>4.0</application.version>
@@ -24,6 +46,7 @@
         <build-helper-maven-plugin.version>3.4.0</build-helper-maven-plugin.version>
         <maven-gpg-plugin.version>3.1.0</maven-gpg-plugin.version>
         <gmavenplus-plugin.version>3.0.0</gmavenplus-plugin.version>
+        <flatten-maven-plugin.version>1.5.0</flatten-maven-plugin.version>
         <groovy.version>3.0.19</groovy.version>
 	</properties>
 
@@ -112,6 +135,11 @@
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>build-helper-maven-plugin</artifactId>
                     <version>${build-helper-maven-plugin.version}</version>
+                </plugin>
+                <plugin>
+                  <groupId>org.codehaus.mojo</groupId>
+                  <artifactId>flatten-maven-plugin</artifactId>
+                  <version>${flatten-maven-plugin.version}</version>
                 </plugin>
 			</plugins>
 		</pluginManagement>
@@ -311,6 +339,35 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>flatten-maven-plugin</artifactId>
+                <executions>
+                  <!-- enable flattening -->
+                  <execution>
+                    <id>flatten</id>
+                    <goals>
+                      <goal>flatten</goal>
+                    </goals>
+                    <phase>process-resources</phase>
+                    <configuration>
+                      <flattenMode>ossrh</flattenMode>
+                      <updatePomFile>true</updatePomFile>
+                      <pomElements>
+                        <dependencies>remove</dependencies>
+                      </pomElements>
+                    </configuration>
+                  </execution>
+                  <!-- ensure proper cleanup -->
+                  <execution>
+                    <id>flatten.clean</id>
+                    <goals>
+                      <goal>clean</goal>
+                    </goals>
+                    <phase>clean</phase>
+                  </execution>
+                </executions>
+              </plugin>
 		</plugins>
 	</build>
 	    <profiles>
