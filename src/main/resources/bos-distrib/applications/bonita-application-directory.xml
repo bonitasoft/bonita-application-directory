@@ -5,7 +5,7 @@
         <description>${description}</description>
         <iconPath>bonita-application-directory.png</iconPath>
         <applicationPages>
-            <applicationPage customPage="custompage_ApplicationDirectoryBonitaV8" token="home"/>
+            <applicationPage customPage="custompage_ApplicationDirectoryBonitaV9" token="home"/>
             <applicationPage customPage="custompage_Error403BonitaV2" token="error-403"/>
             <applicationPage customPage="custompage_Error404BonitaV2" token="error-404"/>
             <applicationPage customPage="custompage_Error500BonitaV2" token="error-500"/>
