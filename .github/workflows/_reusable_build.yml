@@ -10,28 +10,15 @@ on:
       publish:
         type: boolean
         default: false
-        description: Publish artifacts to Maven repository
-      repository-id:
+        description: To publish the project artifacts to the Maven alternative repository.
+      alt-deployment-repository:
         type: string
-        default: snapshots
-        description: Id of the Maven repository
-      repository-url:
-        type: string
-        default: ${{ vars.SNAPSHOTS_REPOSITORY_URL }}
-        description: URL of the Maven repository
-      upload-bos-file:
-        type: boolean
-        default: false
-        description: To upload the BOS file as a Github Artifact
+        default: snapshots::${{ vars.SNAPSHOTS_REPOSITORY_URL }}
+        description: Maven alternative repository to which the project artifacts should be deployed.
 
     secrets:
       BONITA_CI_PAT:
         required: true
-
-permissions:
-  contents: read
-  checks: write
-  pull-requests: write
 
 jobs:
   build:
@@ -57,24 +44,11 @@ jobs:
           keeper-secret-config: ${{ secrets.KSM_CONFIG }}
 
       - name: Maven Build
-        timeout-minutes: 90
-        run: ./mvnw -ntp clean verify
+        if: ${{ !inputs.publish }}
+        timeout-minutes: 60
+        run: ./mvnw -ntp verify
 
-      - name: Get deploy file
+      - name: Maven Build & Deploy
         if: ${{ inputs.publish }}
-        id: deploy-file
-        run: |
-          FILE_NAME=$(./mvnw help:evaluate -Dexpression=project.build.finalName -DforceStdout -q)
-          echo "DEPLOY_FILE=target/${FILE_NAME}.zip" >> "$GITHUB_OUTPUT"
-
-      - name: Maven Deploy
-        if: ${{ inputs.publish }}
-        run: ./mvnw deploy:deploy-file -Dfile=${{ steps.deploy-file.outputs.DEPLOY_FILE }} -DrepositoryId=${{ inputs.repository-id }} -Durl=${{ inputs.repository-url }}
-
-      - name: Upload .bos file
-        if: ${{ inputs.upload-bos-file }}
-        uses: actions/upload-artifact@v4
-        with:
-          name: bonita-application-directory
-          path: "**/target/bonita-application-directory-*.bos"
-          retention-days: 10
+        timeout-minutes: 60
+        run: ./mvnw -ntp deploy -DaltDeploymentRepository=${{ inputs.alt-deployment-repository }}
