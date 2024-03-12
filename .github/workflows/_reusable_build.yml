@@ -1,0 +1,80 @@
+name: Resuable Build
+
+on:
+  workflow_call:
+    inputs:
+      ref:
+        type: string
+        default: ${{ github.ref }}
+        description: The branch ref to build. Leave empty to use workflow branch.
+      publish:
+        type: boolean
+        default: false
+        description: Publish artifacts to Maven repository
+      repository-id:
+        type: string
+        default: snapshots
+        description: Id of the Maven repository
+      repository-url:
+        type: string
+        default: ${{ vars.SNAPSHOTS_REPOSITORY_URL }}
+        description: URL of the Maven repository
+      upload-bos-file:
+        type: boolean
+        default: false
+        description: To upload the BOS file as a Github Artifact
+
+    secrets:
+      BONITA_CI_PAT:
+        required: true
+
+permissions:
+  contents: read
+  checks: write
+  pull-requests: write
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          repository: bonitasoft/bonita-application-directory
+          token: ${{ secrets.BONITA_CI_PAT }}
+          ref: ${{ inputs.ref }}
+
+      - name: ☕ Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 11
+          cache: maven
+
+      - name: Configure Maven Settings
+        uses: bonitasoft/maven-settings-action@v1
+        with:
+          keeper-secret-config: ${{ secrets.KSM_CONFIG }}
+
+      - name: Maven Build
+        timeout-minutes: 90
+        run: ./mvnw -ntp clean verify
+
+      - name: Get deploy file
+        if: ${{ inputs.publish }}
+        id: deploy-file
+        run: |
+          FILE_NAME=$(./mvnw help:evaluate -Dexpression=project.build.finalName -DforceStdout -q)
+          echo "DEPLOY_FILE=target/${FILE_NAME}.zip" >> "$GITHUB_OUTPUT"
+
+      - name: Maven Deploy
+        if: ${{ inputs.publish }}
+        run: ./mvnw deploy:deploy-file -Dfile=${{ steps.deploy-file.outputs.DEPLOY_FILE }} -DrepositoryId=${{ inputs.repository-id }} -Durl=${{ inputs.repository-url }}
+
+      - name: Upload .bos file
+        if: ${{ inputs.upload-bos-file }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: bonita-application-directory
+          path: "**/target/bonita-application-directory-*.bos"
+          retention-days: 10
