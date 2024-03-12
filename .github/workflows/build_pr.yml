@@ -1,0 +1,14 @@
+name: Build Pull Request
+
+on:
+  pull_request:
+    paths-ignore:
+      - ".github/**"
+      - "**/README.md"
+      - "!.github/workflows/build_pr.yml"
+      - "!.github/workflows/_reusable_build.yml"
+
+jobs:
+  build-pr:
+    uses: ./.github/workflows/_reusable_build.yml
+    secrets: inherit
