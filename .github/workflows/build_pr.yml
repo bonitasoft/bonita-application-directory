@@ -10,5 +10,11 @@ on:
 
 jobs:
   build-pr:
+    if: |
+      startsWith(github.head_ref, '7.14.x') != 'true' ||
+      startsWith(github.head_ref, '7.15.x') != 'true' ||
+      startsWith(github.head_ref, '8.0.x') != 'true' ||
+      startsWith(github.head_ref, 'master') != 'true' ||
+      startsWith(github.head_ref, 'release-') != 'true'
     uses: ./.github/workflows/_reusable_build.yml
     secrets: inherit
