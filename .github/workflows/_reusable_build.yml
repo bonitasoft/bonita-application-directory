@@ -15,6 +15,10 @@ on:
         type: string
         default: snapshots::${{ vars.SNAPSHOTS_REPOSITORY_URL }}
         description: Maven alternative repository to which the project artifacts should be deployed.
+      upload-release-asset:
+        type: boolean
+        default: false
+        description: Set to `true` to upload assets to the GitHub Release.
 
     secrets:
       BONITA_CI_PAT:
@@ -52,3 +56,7 @@ jobs:
         if: ${{ inputs.publish }}
         timeout-minutes: 60
         run: ./mvnw -ntp deploy -DaltDeploymentRepository=${{ inputs.alt-deployment-repository }}
+
+      - name: Upload Github release asset
+        if: ${{ inputs.upload-release-asset }}
+        run: gh release upload ${{ inputs.ref }} ./target/bonita-application-directory-${{ inputs.ref }}.bos
