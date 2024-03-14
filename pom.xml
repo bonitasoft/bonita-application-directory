@@ -47,7 +47,7 @@
         <maven-assembly-plugin.version>3.6.0</maven-assembly-plugin.version>
         <maven-dependency-plugin.version>3.6.0</maven-dependency-plugin.version>
         <build-helper-maven-plugin.version>3.4.0</build-helper-maven-plugin.version>
-        <maven-gpg-plugin.version>3.1.0</maven-gpg-plugin.version>
+        <maven-gpg-plugin.version>3.2.0</maven-gpg-plugin.version>
         <gmavenplus-plugin.version>3.0.0</gmavenplus-plugin.version>
         <flatten-maven-plugin.version>1.5.0</flatten-maven-plugin.version>
         <groovy.version>3.0.19</groovy.version>
@@ -394,14 +394,6 @@
                                     <goal>sign</goal>
                                 </goals>
                                 <phase>verify</phase>
-                                <configuration>
-                                    <!-- Prevent `gpg` from using pinentry
-                                    programs -->
-                                    <gpgArguments>
-                                        <arg>--pinentry-mode</arg>
-                                        <arg>loopback</arg>
-                                    </gpgArguments>
-                                </configuration>
                             </execution>
                         </executions>
                     </plugin>
