@@ -10,15 +10,11 @@ on:
       publish:
         type: boolean
         default: false
-        description: To publish the project artifacts to the Maven alternative repository.
-      alt-deployment-repository:
-        type: string
-        default: snapshots::${{ vars.SNAPSHOTS_REPOSITORY_URL }}
-        description: Maven alternative repository to which the project artifacts should be deployed.
+        description: To publish the project artifacts on Bonita Artifact Repository.
       release:
         type: boolean
         default: false
-        description: To indicate that the current build is for a release.
+        description: To indicate that the current build is for a release (it will publish artifacts as well).
 
     secrets:
       BONITA_CI_PAT:
@@ -52,10 +48,15 @@ jobs:
         timeout-minutes: 60
         run: ./mvnw -ntp verify
 
-      - name: Maven Build & Deploy
-        if: ${{ inputs.publish }}
+      - name: Maven Build & Deploy snapshot
+        if: ${{ inputs.publish && !inputs.release }}
         timeout-minutes: 60
-        run: ./mvnw -ntp deploy -DaltDeploymentRepository=${{ inputs.alt-deployment-repository }}
+        run: ./mvnw -ntp deploy -DaltDeploymentRepository=snapshots::${{ vars.SNAPSHOTS_REPOSITORY_URL }}
+
+      - name: Maven Build & Deploy release
+        if: ${{ inputs.release }}
+        timeout-minutes: 60
+        run: ./mvnw -ntp deploy -DaltDeploymentRepository=staging::${{ vars.STAGING_REPOSITORY_URL }}
 
       - name: Upload BOS to the Github release
         if: ${{ inputs.release }}
