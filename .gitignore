@@ -6,3 +6,6 @@
 .settings
 .project
 bonita-application-directory.iml
+
+.flattened-pom.xml
+pom.xml.versionsBackup
